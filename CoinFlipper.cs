@@ -15,9 +15,9 @@ public class Program
 			CoinFlipper();
 
 			//Get User input for repeats
-			Console.WriteLine("Continue? (Y/N):");
 			bool goodInput = false;
 			do {
+				Console.WriteLine("Continue? (Y/N):");
 				String input = Console.ReadLine();
 				input.ToLower();
 				if (input.Equals("y") || input.Equals("yes")) {
