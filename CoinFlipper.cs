@@ -16,10 +16,10 @@ public class Program
 
 			//Get User input for repeats
 			Console.WriteLine("Continue? (Y/N):");
-			String input = Console.ReadLine();
-			input.ToLower();
 			bool goodInput = false;
 			do {
+				String input = Console.ReadLine();
+				input.ToLower();
 				if (input.Equals("y") || input.Equals("yes")) {
 					loop = true;
 					goodInput = true;
