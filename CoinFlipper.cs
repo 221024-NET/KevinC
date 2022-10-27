@@ -8,7 +8,7 @@ public class Program
 	// Constructor
 	// Methods
 	//[access modifier] [modifier] [return type] [method name] ([parameters])
-	public static void Main()
+	public static void main()
 	{
 		bool loop = true;
 		do {
