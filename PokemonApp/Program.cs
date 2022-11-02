@@ -13,16 +13,17 @@ namespace Program{
             //We call the constructor, and pass it the desired values for this object
             //                             Name , Dex# , Type, Health, Damage, Ability
             Pokemon pikachu = new Pokemon("Pikachu", 1, "Electric", 12, 2, "Static");
-            Pokemon charizard = new Pokemon("Charizard", 2, "Fire", 2000000, 3, "Blaze");
+            Pokemon charizard = new Pokemon("Charizard", 2, "Fire", 20, 3, "Blaze");
             Pokemon pidgeot = new Pokemon("Pidgeot", 3, "Normal", 15, 4, "Hurricane");
             Pokemon squirtle = new Pokemon("Squirtle", 4, "Water", 14, 5, "Water Squirt");
             Pokemon rattata = new Pokemon("Rattata", 5, "Normal", 10, 3, "Bite");
 
             pokeList[0] = pikachu;
-            pokeList[1] = charizard;
+            pokeList[1] = charizard; 
             pokeList[2] = pidgeot;
             pokeList[3] = squirtle;
             pokeList[4] = rattata;
+            //pokeList[5] = pidgeot;
 
             Pokemon user = promptUser();
             Console.WriteLine("User chose " + user.name);
@@ -30,7 +31,7 @@ namespace Program{
             Pokemon opp = getOpponentPokemon(user);
             Console.WriteLine("Opponent chose " + opp.name);
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000); // = 2 seconds
 
             Console.WriteLine("Winner: " + fightPokemon(user, opp).name);
         }
@@ -69,18 +70,18 @@ namespace Program{
                 player2.health = player2.health - player1.damage;
                 Console.WriteLine(player1.name + " attacks with " + player1.ability + " and " + player2.name + " is dealt " + player1.damage + " damage.");
                 Thread.Sleep(2000);
-                Console.WriteLine(player2.name + " has " + player2.health + " health remaining.");
+                Console.WriteLine(" " + player2.name + " has " + player2.health + " health remaining.");
                 Thread.Sleep(2000);
                 if (player2.health > 0) {
                     player1.health = player1.health - player2.damage;
                     Console.WriteLine(player2.name + " attacks with " + player2.ability + " and " + player1.name + " is dealt " + player2.damage + " damage.");
                     Thread.Sleep(2000);
-                    Console.WriteLine(player1.name + " has " + player1.health + " health remaining.");
+                    Console.WriteLine(" " + player1.name + " has " + player1.health + " health remaining.");
                     Thread.Sleep(2000);
                 }
             } while (player1.health > 0 && player2.health > 0);
 
-            if (player1.health == 0) {
+            if (player1.health <= 0) {
                 return player2;
             } else {
                 return player1;
