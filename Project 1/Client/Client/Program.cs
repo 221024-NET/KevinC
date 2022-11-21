@@ -106,14 +106,14 @@ public class Program
                         Console.WriteLine("Please enter a password.");
                         string password = await getUserInputString("Password: ");
                         Console.WriteLine("Please re-enter your password.");
-                        string repassword = await getUserInputStringSecure("Password: ");
+                        string repassword = await getUserInputString("Password: ");
                         while (password != repassword)
                         {
                             Console.WriteLine("PASSWORDS DID NOT MATCH. REDO PASSWORDS.");
                             Console.WriteLine("Please enter a password.");
                             password = await getUserInputString("Password: ");
                             Console.WriteLine("Please re-enter your password.");
-                            repassword = await getUserInputStringSecure("Password: ");
+                            repassword = await getUserInputString("Password: ");
                         }
                         employee = await CreateEmployee(email, password);
                         input = 0;
@@ -135,14 +135,14 @@ public class Program
                             Console.WriteLine("Please enter a password.");
                             password = await getUserInputString("Password: ");
                             Console.WriteLine("Please re-enter your password.");
-                            repassword = await getUserInputStringSecure("Password: ");
+                            repassword = await getUserInputString("Password: ");
                             while (password != repassword)
                             {
                                 Console.WriteLine("PASSWORDS DID NOT MATCH. REDO PASSWORDS.");
                                 Console.WriteLine("Please enter a password.");
-                                password = await getUserInputStringSecure("Password: ");
+                                password = await getUserInputString("Password: ");
                                 Console.WriteLine("Please re-enter your password.");
-                                repassword = await getUserInputStringSecure("Password: ");
+                                repassword = await getUserInputString("Password: ");
                             }
                             employee = await CreateEmployee(email, password);
                             input = 0;
