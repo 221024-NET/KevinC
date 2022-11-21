@@ -53,9 +53,18 @@ public class Program
                         string password = await getUserInputString("Password: ");
                         manager = await LoginManager(email, password);
                         employee = await LoginEmployee(email, password);
+                        bool LoggedIn = true;
                         while (employee.Id == -1 && manager.Id == -1)
                         {
                             Console.WriteLine("Failed to Sign In. Your email and/or password may be incorrect.".ToUpper());
+                            Console.WriteLine("Do you want to try again?");
+                            Console.WriteLine("[1] Yes\n[2] No\n");
+                            input = await getUserInputOption(1, 2);
+                            if (input == 2)
+                            {
+                                LoggedIn = false;
+                                break;
+                            }
                             Console.WriteLine("Please enter your email.");
                             email = await getUserInputString("Email: ");
                             Console.WriteLine();
@@ -67,19 +76,19 @@ public class Program
 
                         //Check if they signed in as a manager
                         bool IsEmployee = true;
-                        if (manager.Id > 0)
+                        if (manager.Id > 0 && LoggedIn)
                         {
                             //They are a manager
                             IsEmployee = false;
                         }
                         
                         //Goto Layer
-                        if (IsEmployee)
+                        if (IsEmployee && LoggedIn)
                         {
                             //Employee Layer
                             layer = 1;
                         }
-                        else
+                        else if (!IsEmployee && LoggedIn)
                         {
                             //Manager Layer
                             layer = 2;
