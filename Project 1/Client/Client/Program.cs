@@ -60,7 +60,7 @@ public class Program
                             email = await getUserInputString("Email: ");
                             Console.WriteLine();
                             Console.WriteLine("Please enter your password.");
-                            password = await getUserInputStringSecure("Password: ");
+                            password = await getUserInputString("Password: ");
                             manager = await LoginManager(email, password);
                             employee = await LoginEmployee(email, password);
                         }
