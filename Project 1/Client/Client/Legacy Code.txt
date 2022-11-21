@@ -1,0 +1,121 @@
+﻿Console.Clear();
+                            Console.WriteLine("--- EMPLOYEE PAGE: VIEW TICKETS ---");
+                            Console.WriteLine("Employee: {0}", employee.Name);
+                            Console.WriteLine("[1] View All Tickets\n[2] View Pending Tickets\n[3] View Resolved Tickets\n[4] Back");
+                            input = await getUserInputOption(1, 4);
+                            if (input == 1)
+                            {
+                                //Display All Tickets
+                                Console.Clear();
+                                List<Ticket> list = await GetAllEmployeeTickets(employee.Id);
+                                Console.WriteLine("--- EMPLOYEE PAGE: ALL TICKETS ---");
+                                Console.WriteLine("TICKETS: {0}", list.Count);
+                                int i = 1;
+                                foreach (Ticket t in list)
+                                {
+                                    Console.WriteLine("[{0}]----------------------", i);
+                                    Console.WriteLine("Date Created: {0}, Last Edited: {1}", t.DoC, t.DoE);
+                                    Console.WriteLine("Approving Manager: {0}", GetManagerName(employee.Manager_ID));
+                                    Console.WriteLine("Amount: ${0}", t.Amount);
+                                    Console.WriteLine("Type: {0}", t.Type);
+                                    if (t.Pending)
+                                    {
+                                        Console.WriteLine("Status: PENDING");
+                                    }
+                                    else if (t.Approved)
+                                    {
+                                        Console.WriteLine("Status: APPROVED");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Status: DENIED");
+                                    }
+                                    Console.WriteLine("Discription:\n" + t.Discription);
+                                    Console.WriteLine();
+                                    i++;
+                                }
+                                Console.WriteLine("Press [ENETER] to return back to the EMPLOYEE PAGE: VIEW TICKETS");
+                                bool cont = false;
+                                while (!cont)
+                                {
+                                    var key = Console.ReadKey(true);
+                                    if (key.Key == ConsoleKey.Enter)
+                                    {
+                                        cont = true;
+                                    }
+                                }
+                            }
+                            else if (input == 2)
+                            {
+                                //Display Only Pending Tickets
+                                Console.Clear();
+                                List<Ticket> list = await GetPendingEmployeeTickets(employee.Id);
+                                Console.WriteLine("--- EMPLOYEE PAGE: PENDING TICKETS ---");
+                                Console.WriteLine("TICKETS: {0}", list.Count);
+                                int i = 1;
+                                foreach (Ticket t in list)
+                                {
+                                    Console.WriteLine("[{0}]----------------------", i);
+                                    Console.WriteLine("Date Created: {0}, Last Edited: {1}", t.DoC, t.DoE);
+                                    Console.WriteLine("Approving Manager: {0}", GetManagerName(employee.Manager_ID));
+                                    Console.WriteLine("Amount: ${0}", t.Amount);
+                                    Console.WriteLine("Type: {0}", t.Type);
+                                    Console.WriteLine("Status: PENDING");
+                                    Console.WriteLine("Discription:\n" + t.Discription);
+                                    Console.WriteLine();
+                                    i++;
+                                }
+                                Console.WriteLine("Press [ENETER] to return back to the EMPLOYEE PAGE: VIEW TICKETS");
+                                bool cont = false;
+                                while (!cont)
+                                {
+                                    var key = Console.ReadKey(true);
+                                    if (key.Key == ConsoleKey.Enter)
+                                    {
+                                        cont = true;
+                                    }
+                                }
+                            }
+                            else if (input == 3)
+                            {
+                                //Display Only Resolved Tickets
+                                Console.Clear();
+                                List<Ticket> list = await GetPendingEmployeeTickets(employee.Id);
+                                Console.WriteLine("--- EMPLOYEE PAGE: RESOLVED TICKETS ---");
+                                Console.WriteLine("TICKETS: {0}", list.Count);
+                                int i = 1;
+                                foreach (Ticket t in list)
+                                {
+                                    Console.WriteLine("[{0}]----------------------", i);
+                                    Console.WriteLine("Date Created: {0}, Last Edited: {1}", t.DoC, t.DoE);
+                                    Console.WriteLine("Approving Manager: {0}", GetManagerName(employee.Manager_ID));
+                                    Console.WriteLine("Amount: ${0}", t.Amount);
+                                    Console.WriteLine("Type: {0}", t.Type);
+                                    if (t.Approved)
+                                    {
+                                        Console.WriteLine("Status: APPROVED");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Status: DENIED");
+                                    }
+                                    Console.WriteLine("Discription:\n" + t.Discription);
+                                    Console.WriteLine();
+                                    i++;
+                                }
+                                Console.WriteLine("Press [ENETER] to return back to the EMPLOYEE PAGE: VIEW TICKETS");
+                                bool cont = false;
+                                while (!cont)
+                                {
+                                    var key = Console.ReadKey(true);
+                                    if (key.Key == ConsoleKey.Enter)
+                                    {
+                                        cont = true;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                //Return back to the Employee Page Home
+                                layer = 1;
+                            }
