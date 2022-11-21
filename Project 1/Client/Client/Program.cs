@@ -225,7 +225,7 @@ public class Program
                                     {
                                         Console.WriteLine("Status: DENIED");
                                     }
-                                    Console.WriteLine("Description:\n" + t.Description);
+                                    Console.WriteLine("Description:\n{0}", t.Discription);
                                     Console.WriteLine();
                                     i++;
                                 }
@@ -268,7 +268,7 @@ public class Program
                                     Console.WriteLine("Amount: ${0}", t.Amount);
                                     Console.WriteLine("Type: {0}", t.Type);
                                     Console.WriteLine("Status: PENDING");
-                                    Console.WriteLine("Description:\n" + t.Description);
+                                    Console.WriteLine("Description:\n" + t.Discription);
                                     Console.WriteLine();
                                     i++;
                                 }
@@ -318,7 +318,7 @@ public class Program
                                     {
                                         Console.WriteLine("Status: DENIED");
                                     }
-                                    Console.WriteLine("Description:\n" + t.Description);
+                                    Console.WriteLine("Description:\n" + t.Discription);
                                     Console.WriteLine();
                                     i++;
                                 }
@@ -499,7 +499,7 @@ public class Program
                                     Console.WriteLine("Employee: {0}", eName);
                                     Console.WriteLine("Type: {0}", t.Type);
                                     Console.WriteLine("Amount: ${0}", t.Amount);
-                                    Console.WriteLine("Description:\n" + t.Description);
+                                    Console.WriteLine("Description:\n" + t.Discription);
                                     Console.WriteLine();
                                     i++;
                                 }
@@ -533,7 +533,7 @@ public class Program
                                         Console.WriteLine(" Employee: {0}", eName);
                                         Console.WriteLine(" Type: {0}", t.Type);
                                         Console.WriteLine(" Amount: ${0}", t.Amount);
-                                        Console.WriteLine("Description:\n" + t.Description);
+                                        Console.WriteLine("Description:\n" + t.Discription);
                                         Console.WriteLine();
                                         i++;
                                     }
